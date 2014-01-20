@@ -1,0 +1,23 @@
+= simple_form_for(@mtg) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :matricula
+    = f.input :dtmatricula
+    = f.input :endereco
+    = f.input :bairro
+    = f.input :cep
+    = f.input :cidade
+    = f.input :uf
+    = f.input :telefone
+    = f.input :celular
+    = f.input :email
+    = f.input :url
+    = f.input :cnpj
+    = f.input :dtfundacao
+    = f.input :presidente
+    = f.input :obs
+
+  .form-actions
+    = f.button :submit

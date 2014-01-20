@@ -1,0 +1,58 @@
+p#notice = notice
+.foto
+  = image_tag(@member.picture_url, :width => 150) if @member.picture.present?
+
+.row
+  .col-md-4
+    strong Nome
+    h3 = @member.name
+  .col-md-2
+    strong Data nasc<br />
+    = @member.dtnasc.strftime("%d-%m-%Y")
+  .col-md-2
+    strong Matrícula<br />
+    = @member.matricula
+  .col-md-2
+    strong Data matrícula<br />
+    = @member.dtmatricula.strftime("%d-%m-%Y")
+  .col-md-3
+    strong Endereço<br />
+    = @member.endereco
+  .col-md-3
+    strong Bairro<br />
+    = @member.bairro
+  .col-md-2
+    strong CEP<br />
+    = @member.cep
+  .col-md-2
+    strong Cidade<br />
+    = @member.cidade
+  .col-md-2
+    strong UF<br />
+    = @member.uf
+  .col-md-2
+    strong Telefone<br />
+    = @member.telefone
+  .col-md-2
+    strong Celular<br />
+    = @member.celular
+  .col-md-4
+    strong Email<br />
+    = @member.email
+  .col-md-2
+    strong Natural<br />
+    = @member.natural
+  .col-md-2
+    strong UF<br />
+    = @member.naturaluf
+  .col-md-4
+    strong Cônjuge<br />
+    = @member.conjuge
+  .col-md-4
+    strong Nasc. cônjuge<br />
+    = @member.nascconj.strftime("%d-%m-%Y")
+  .col-md-2
+    strong Código de barra<br />
+    = @member.codbarra
+
+= link_to 'Novo Sócio', new_member_path

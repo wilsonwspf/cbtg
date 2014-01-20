@@ -1,0 +1,28 @@
+h1 CTGs
+
+table.table.table-striped
+  tr
+    th Nome
+    th Telefone
+    th Celular
+    th Email
+    th URL
+    th
+
+
+  - @ctgs.each do |ctg|
+    tr
+      td = ctg.name
+      td = ctg.telefone
+      td = ctg.celular
+      td = ctg.email
+      td = ctg.url
+      td
+        .btn-group.pull-right
+          = link_to 'Ver', ctg, class: 'btn btn-default btn-sm'
+          = link_to 'Editar', edit_ctg_path(ctg), class: 'btn btn-default btn-sm'
+          = link_to 'Deletar', ctg, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo CTG', new_ctg_path, class: 'btn btn-default btn-sm'

@@ -1,0 +1,20 @@
+h1 Listing tbgrupos
+
+table.table.table-striped
+  tr
+    th Name
+    th
+
+
+  - @tbgrupos.each do |tbgrupo|
+    tr
+      td = tbgrupo.name
+      td
+        .btn-group.pull-right
+          = link_to 'Ver', tbgrupo, class: 'btn btn-default btn-sm'
+          = link_to 'Editar', edit_tbgrupo_path(tbgrupo), class: 'btn btn-default btn-sm'
+          = link_to 'Deletar', tbgrupo, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo Grupo', new_tbgrupo_path, class: 'btn btn-default btn-sm'

@@ -1,0 +1,24 @@
+= simple_form_for(@evento) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-12
+        = f.input :name, label: 'Nome'
+    .row
+      .col-md-2
+        = f.input :dataini, label: 'Data início'
+      .col-md-2
+        = f.input :datafim, label: 'Data fim'
+      .col-md-2
+        = f.input :local, label: 'Local'
+      .col-md-2
+        = f.input :cidade, label: 'Cidade'
+      .col-md-2
+        = f.input :uf, label: 'UF'
+      .col-md-2
+        = f.input :link, label: 'Link'
+
+
+  .form-actions
+    = f.button :submit

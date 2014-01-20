@@ -1,0 +1,32 @@
+h1 Sócios
+
+table.table.table-striped
+  tr
+    th Nome
+    th Telefone
+    th Celular
+    th Email
+    th Data Nascimento
+    th CTG
+    th Foto
+    th
+
+
+  - @members.each do |member|
+    tr
+      td = member.name
+      td = member.telefone
+      td = member.celular
+      td = member.email
+      td = member.dtnasc.strftime("%d-%m-%Y")
+      td = member.ctg.name
+      td = image_tag member.picture_url(:thumb) if member.picture?
+      td
+        .btn-group.pull-right
+          = link_to 'Ver', member, class: 'btn btn-default btn-sm'
+          = link_to 'Editar', edit_member_path(member), class: 'btn btn-default btn-sm'
+          = link_to 'Deletar', member, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo Sócio', new_member_path, class: 'btn btn-default btn-sm'

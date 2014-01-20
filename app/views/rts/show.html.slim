@@ -1,0 +1,57 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @rt.name
+p
+  strong MTG:
+  = @rt.mtg.name
+p
+  strong Matricula:
+  = @rt.matricula
+p
+  strong Dtmatricula:
+  = @rt.dtmatricula
+p
+  strong Endereco:
+  = @rt.endereco
+p
+  strong Bairro:
+  = @rt.bairro
+p
+  strong Cep:
+  = @rt.cep
+p
+  strong Cidade:
+  = @rt.cidade
+p
+  strong Uf:
+  = @rt.uf
+p
+  strong Telefone:
+  = @rt.telefone
+p
+  strong Celular:
+  = @rt.celular
+p
+  strong Email:
+  = @rt.email
+p
+  strong Url:
+  = @rt.url
+p
+  strong Cnpj:
+  = @rt.cnpj
+p
+  strong Dtfundacao:
+  = @rt.dtfundacao
+p
+  strong Coordenador:
+  = @rt.coordenador
+p
+  strong Obs:
+  = @rt.obs
+
+= link_to 'Edit', edit_rt_path(@rt)
+'|
+= link_to 'Back', rts_path

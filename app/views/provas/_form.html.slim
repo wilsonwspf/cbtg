@@ -1,0 +1,10 @@
+= simple_form_for(@prova) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.association :modal
+    = f.input :obs
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,28 @@
+h1 RTs
+
+table.table.table-striped
+  tr
+    th Nome
+    th Telefone
+    th Celular
+    th Email
+    th URL
+    th
+
+
+  - @rts.each do |rt|
+    tr
+      td = rt.name
+      td = rt.telefone
+      td = rt.celular
+      td = rt.email
+      td = rt.url
+      td
+        .btn-group.pull-right
+          = link_to 'Ver', rt, class: 'btn btn-default btn-sm'
+          = link_to 'Editar', edit_rt_path(rt), class: 'btn btn-default btn-sm'
+          = link_to 'Deletar', rt, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Nova RT', new_rt_path, class: 'btn btn-default btn-sm'

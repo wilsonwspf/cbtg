@@ -1,0 +1,28 @@
+h1 MTGs
+
+table.table.table-striped
+  tr
+    th Nome
+    th Telefone
+    th Celular
+    th Email
+    th URL
+    th
+
+
+  - @mtgs.each do |mtg|
+    tr
+      td = mtg.name
+      td = mtg.telefone
+      td = mtg.celular
+      td = mtg.email
+      td = mtg.url
+      td
+        .btn-group.pull-right
+          = link_to 'Ver', mtg, class: 'btn btn-default btn-sm'
+          = link_to 'Editar', edit_mtg_path(mtg), class: 'btn btn-default btn-sm'
+          = link_to 'Deletar', mtg, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo MTG', new_mtg_path, class: 'btn btn-default btn-sm'

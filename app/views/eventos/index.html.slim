@@ -1,0 +1,30 @@
+h1 Eventos
+
+table.table.table-striped
+  tr
+    th Name
+    th Data Início
+    th Data Fim
+    th Local
+    th Cidade
+    th UF
+    th
+
+
+  - @eventos.each do |evento|
+    tr
+      td = evento.name
+      td = evento.dataini
+      td = evento.datafim
+      td = evento.local
+      td = evento.cidade
+      td = evento.uf
+      td
+        .btn-group.pull-right
+          = link_to 'Ver', evento, class: 'btn btn-default btn-sm'
+          = link_to 'Editar', edit_evento_path(evento), class: 'btn btn-default btn-sm'
+          = link_to 'Deletar', evento, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo Evento', new_evento_path, class: 'btn btn-default btn-sm'

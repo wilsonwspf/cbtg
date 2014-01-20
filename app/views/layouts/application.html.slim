@@ -1,0 +1,61 @@
+doctype html
+html
+  head
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title MTG-RS
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    /[if lt IE 9]
+      = javascript_include_tag "html5shiv", "data-turbolinks-track" => true
+      = javascript_include_tag "respond.min", "data-turbolinks-track" => true
+  body
+    nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top
+
+      a.navbar-brand href="/members" <img src="http://www.cbtg.com.br/imagens/logos/mtgrs.jpg" width="20"> MTG-RS
+
+      ul.nav.navbar-nav
+        li = link_to 'Sócios', members_path
+
+        li = link_to 'CTGs', ctgs_path
+
+        li = link_to 'RTs', rts_path
+
+        li = link_to 'MTGs', mtgs_path
+
+        li = link_to 'Inscrições', registrations_path
+
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            | Tabelas
+            b.caret
+          ul.dropdown-menu
+            li
+              a href="/functions" Cargos
+            li
+              a href="/tipodirs" Tipos de Diretorias
+            li
+              a href="/tiposocs" Tipos de Sócios
+            li
+              a href="/tpeves" Tipos de Eventos
+            li.divider
+            li
+              a href="/modals" Modalidades
+            li
+              a href="/provas" Provas
+            li
+              a href="/tbgrupos" Grupos
+            li
+              a href="/categories" Categorias
+            li
+              a href="/eventos" Eventos
+
+
+    .container
+      = yield
+  footer
+    .container
+      hr
+      h3 Sistema de Administração do MTG-RS
+

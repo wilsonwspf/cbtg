@@ -1,0 +1,20 @@
+h1 Tipos de Eventos
+
+table.table.table-striped
+  tr
+    th Name
+    th
+
+
+  - @tpeves.each do |tpefe|
+    tr
+      td = tpefe.name
+      td
+        .btn-group.pull-right
+          = link_to 'Show', tpefe, class: 'btn btn-default btn-sm'
+          = link_to 'Edit', edit_tpefe_path(tpefe), class: 'btn btn-default btn-sm'
+          = link_to 'Destroy', tpefe, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo Tipo de Evento', new_tpefe_path, class: 'btn btn-default btn-sm'
