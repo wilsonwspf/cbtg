@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118171202) do
+ActiveRecord::Schema.define(version: 20140123215259) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -42,6 +42,33 @@ ActiveRecord::Schema.define(version: 20140118171202) do
   end
 
   add_index "ctgs", ["rt_id"], name: "index_ctgs_on_rt_id"
+
+  create_table "entities", force: true do |t|
+    t.string   "name"
+    t.string   "endereco"
+    t.string   "bairro"
+    t.string   "cep"
+    t.string   "cidade"
+    t.string   "uf"
+    t.string   "tel1"
+    t.string   "tel2"
+    t.string   "email"
+    t.string   "endcorresp"
+    t.string   "bairrocorresp"
+    t.string   "cepcorresp"
+    t.string   "cidadecorresp"
+    t.string   "ufcorresp"
+    t.string   "patrao"
+    t.string   "fonerespatrao"
+    t.string   "fonecompatrao"
+    t.string   "celpatrao"
+    t.string   "emailpatrao"
+    t.string   "cnpj"
+    t.date     "dtfundacao"
+    t.date     "datafiliacaomtg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "eventos", force: true do |t|
     t.string   "name"

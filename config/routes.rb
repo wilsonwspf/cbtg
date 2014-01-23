@@ -1,5 +1,7 @@
 Cbtg::Application.routes.draw do
 
+  resources :entities
+
   resources :eventos
 
   resources :registrations

@@ -1,0 +1,72 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @entity.name
+p
+  strong Endereco:
+  = @entity.endereco
+p
+  strong Bairro:
+  = @entity.bairro
+p
+  strong Cep:
+  = @entity.cep
+p
+  strong Cidade:
+  = @entity.cidade
+p
+  strong Uf:
+  = @entity.uf
+p
+  strong Tel1:
+  = @entity.tel1
+p
+  strong Tel2:
+  = @entity.tel2
+p
+  strong Email:
+  = @entity.email
+p
+  strong Endcorresp:
+  = @entity.endcorresp
+p
+  strong Bairrocorresp:
+  = @entity.bairrocorresp
+p
+  strong Cepcorresp:
+  = @entity.cepcorresp
+p
+  strong Cidadecorresp:
+  = @entity.cidadecorresp
+p
+  strong Ufcorresp:
+  = @entity.ufcorresp
+p
+  strong Patrao:
+  = @entity.patrao
+p
+  strong Fonerespatrao:
+  = @entity.fonerespatrao
+p
+  strong Fonecompatrao:
+  = @entity.fonecompatrao
+p
+  strong Celpatrao:
+  = @entity.celpatrao
+p
+  strong Emailpatrao:
+  = @entity.emailpatrao
+p
+  strong Cnpj:
+  = @entity.cnpj
+p
+  strong Dtfundacao:
+  = @entity.dtfundacao
+p
+  strong Datafiliacaomtg:
+  = @entity.datafiliacaomtg
+
+= link_to 'Edit', edit_entity_path(@entity)
+'|
+= link_to 'Back', entities_path

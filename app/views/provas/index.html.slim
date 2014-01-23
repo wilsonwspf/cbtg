@@ -11,7 +11,7 @@ table.table.table-striped
   - @provas.each do |prova|
     tr
       td = prova.name
-      td = prova.modal_id
+      td = prova.modal.name
       td = prova.obs
       td
         .btn-group.pull-right
