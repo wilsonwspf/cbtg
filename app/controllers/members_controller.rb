@@ -3,7 +3,13 @@ class MembersController < ApplicationController
 
   # GET /members
   def index
-    @members = Member.all
+    if params[:busca].present?
+      @nascimento_inicio = Date.new params[:busca]["nascimento_inicio(1i)"].to_i, params[:busca]["nascimento_inicio(2i)"].to_i, params[:busca]["nascimento_inicio(3i)"].to_i
+      @nascimento_fim = Date.new params[:busca]["nascimento_fim(1i)"].to_i, params[:busca]["nascimento_fim(2i)"].to_i, params[:busca]["nascimento_fim(3i)"].to_i
+      @members = Member.where("name LIKE ?", "%#{params[:busca][:name]}%").where(dtnasc: (@nascimento_inicio..@nascimento_fim))
+    else
+      @members = Member.all
+    end
   end
 
   # GET /members/1
