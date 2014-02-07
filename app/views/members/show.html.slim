@@ -1,58 +1,89 @@
 p#notice = notice
-.foto
-  = image_tag(@member.picture_url, :width => 150) if @member.picture.present?
-
 .row
-  .col-md-4
-    strong Nome
-    h3 = @member.name
   .col-md-2
-    strong Data nasc<br />
-    = @member.dtnasc.strftime("%d-%m-%Y")
-  .col-md-2
-    strong Matrícula<br />
-    = @member.matricula
-  .col-md-2
-    strong Data matrícula<br />
-    = @member.dtmatricula.strftime("%d-%m-%Y")
-  .col-md-3
-    strong Endereço<br />
-    = @member.endereco
-  .col-md-3
-    strong Bairro<br />
-    = @member.bairro
-  .col-md-2
-    strong CEP<br />
-    = @member.cep
-  .col-md-2
-    strong Cidade<br />
-    = @member.cidade
-  .col-md-2
-    strong UF<br />
-    = @member.uf
-  .col-md-2
-    strong Telefone<br />
-    = @member.telefone
-  .col-md-2
-    strong Celular<br />
-    = @member.celular
-  .col-md-4
-    strong Email<br />
-    = @member.email
-  .col-md-2
-    strong Natural<br />
-    = @member.natural
-  .col-md-2
-    strong UF<br />
-    = @member.naturaluf
-  .col-md-4
-    strong Cônjuge<br />
-    = @member.conjuge
-  .col-md-4
-    strong Nasc. cônjuge<br />
-    = @member.nascconj.strftime("%d-%m-%Y")
-  .col-md-2
-    strong Código de barra<br />
-    = @member.codbarra
+    strong Foto<br />
+    = image_tag(@member.picture_url, :width => 150, :height => 200) if @member.picture.present?
+  .col-md-10
+    .row
+      .col-md-12
+        h1 = @member.name
+    .row
+      .col-md-2
+        strong Matrícula<br />
+        = @member.matricula
+      .col-md-2
+        strong Filiacao<br />
+        = @member.filiacao
+      .col-md-2
+        strong Nascimento<br />
+        = @member.nascimento
 
-= link_to 'Novo Sócio', new_member_path
+      .col-md-2
+        strong Tipo<br />
+        = @member.tipo
+      .col-md-2
+        strong Natural<br />
+        = @member.natural
+      .col-md-2
+        strong Uf<br />
+        = @member.uf
+    hr
+    .row
+      .col-md-4
+        strong Endereco<br />
+        = @member.endereco
+      .col-md-3
+        strong Bairro<br />
+        = @member.bairro
+      .col-md-2
+        strong Cep<br />
+        = @member.cep
+      .col-md-2
+        strong Cidade<br />
+        = @member.cidade
+      .col-md-1
+        strong Ufcid<br />
+        = @member.ufcid
+    hr
+    .row
+      .col-md-2
+        strong Telres<br />
+        = @member.telres
+      .col-md-2
+        strong Telfunc<br />
+        = @member.telfunc
+      .col-md-2
+        strong Celular<br />
+        = @member.celular
+      .col-md-2
+        strong Rg<br />
+        = @member.rg
+      .col-md-2
+        strong Oexp<br />
+        = @member.oexp
+      .col-md-2
+        strong Cpf<br />
+        = @member.cpf
+    hr
+    .row
+      .col-md-4
+        strong Email<br />
+        = @member.email
+      .col-md-4
+        strong Conjuge<br />
+        = @member.conjuge
+      .col-md-4
+        strong Nascconjuge<br />
+        = @member.nascconjuge
+    hr
+    .row
+      .col-md-12
+        strong Obs<br />
+        = @member.obs
+
+    hr
+    .row
+      .col-md-1
+        = link_to 'Editar', edit_member_path(@member), class: 'btn btn-danger'
+      .col-md-1
+        = link_to 'Voltar', members_path, class: 'btn btn-danger'

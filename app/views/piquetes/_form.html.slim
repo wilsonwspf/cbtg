@@ -1,0 +1,9 @@
+= simple_form_for(@piquete) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, label: 'Piquete'
+    = f.association :ctg
+
+  .form-actions
+    = f.button :submit

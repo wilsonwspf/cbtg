@@ -1,28 +1,45 @@
+/= params[:busca]
+
+= simple_form_for(:busca, method: :get) do |f|
+  .row
+    .col-md-6
+      = f.input :name, label: 'Procurar por ...'
+    .col-md-6
+      <br />
+      = f.button :submit, 'Filtrar'
+
 h1 RTs
 
 table.table.table-striped
   tr
-    th Nome
-    th Telefone
-    th Celular
+    th Name
     th Email
-    th URL
+    th Tel1
+    th Tel2
+    th Cel
+    th Fundacao
+    th Filiacao
+    th Logo
     th
-
+    th
+    th
 
   - @rts.each do |rt|
     tr
-      td = rt.name
-      td = rt.telefone
-      td = rt.celular
+      td = rt.name + ' - ' + rt.mtg.name
       td = rt.email
-      td = rt.url
+      td = rt.tel1
+      td = rt.tel2
+      td = rt.cel
+      td = l rt.fundacao
+      td = l rt.filiacao
+      td = image_tag rt.logo_url(:thumb) if rt.logo?
       td
-        .btn-group.pull-right
-          = link_to 'Ver', rt, class: 'btn btn-default btn-sm'
-          = link_to 'Editar', edit_rt_path(rt), class: 'btn btn-default btn-sm'
-          = link_to 'Deletar', rt, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+          .btn-group.pull-right
+            = link_to 'Show', rt, class: 'btn btn-default btn-sm'
+            = link_to 'Edit', edit_rt_path(rt), class: 'btn btn-default btn-sm'
+            = link_to 'Destroy', rt, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
 br
 
-= link_to 'Nova RT', new_rt_path, class: 'btn btn-default btn-sm'
+= link_to 'Nova RT', new_rt_path

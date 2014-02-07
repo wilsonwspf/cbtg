@@ -1,52 +1,99 @@
-p#notice = notice
+#notice = notice
 
-p
-  strong Name:
-  = @ctg.name
-p
-  strong Matricula:
-  = @ctg.matricula
-p
-  strong Dtmatricula:
-  = @ctg.dtmatricula
-p
-  strong Endereco:
-  = @ctg.endereco
-p
-  strong Bairro:
-  = @ctg.bairro
-p
-  strong Cep:
-  = @ctg.cep
-p
-  strong Cidade:
-  = @ctg.cidade
-p
-  strong Uf:
-  = @ctg.uf
-p
-  strong Telefone:
-  = @ctg.telefone
-p
-  strong Celular:
-  = @ctg.celular
-p
-  strong Email:
-  = @ctg.email
-p
-  strong Url:
-  = @ctg.url
-p
-  strong Cnpj:
-  = @ctg.cnpj
-p
-  strong Dtfundacao:
-  = @ctg.dtfundacao
-p
-  strong Patrao:
-  = @ctg.patrao
-p
-  strong Obs:
-  = @ctg.obs
+.row
+  .col-md-2
+    = image_tag(@ctg.logo_url, :width => 150) if @ctg.logo.present?
+  .col-md-10
+    .row
+      .col-md-12
+        h1 = @ctg.name
+    .row
+      .col-md-4
+        strong Endereço<br />
+        = @ctg.end
 
+      .col-md-3
+        strong Bairro<br />
+        = @ctg.bairro
+
+      .col-md-2
+        strong CEP<br />
+        = @ctg.cep
+
+      .col-md-2
+        strong Cidade<br />
+        = @ctg.cidade
+
+      .col-md-1
+        strong UF<br />
+        = @ctg.uf
+    hr
+    .row
+      .col-md-3
+        strong URL<br />
+        = @ctg.url
+
+      .col-md-3
+        strong Email<br />
+        = @ctg.email
+
+      .col-md-2
+        strong Telefone<br />
+        = @ctg.tel1
+
+      .col-md-2
+        strong Telefone<br />
+        = @ctg.tel2
+
+      .col-md-2
+        strong Celular<br />
+        = @ctg.cel
+    hr
+    .row
+      .col-md-4
+        strong Fundação<br />
+        = l @ctg.fundacao
+
+      .col-md-4
+        strong Filiação<br />
+        = l @ctg.filiacao
+
+      .col-md-4
+        strong CNPJ<br />
+        = @ctg.cnpj
+    hr
+    .row
+      .col-md-4
+        strong Endereço para Correspondência<br />
+        = @ctg.endcor
+
+      .col-md-3
+        strong Bairro<br />
+        = @ctg.bairrocor
+
+      .col-md-2
+        strong CEP<br />
+        = @ctg.cep
+      .col-md-2
+        strong Cidade<br />
+        = @ctg.cidadecor
+
+      .col-md-1
+        strong UF<br />
+        = @ctg.ufcor
+    hr
+    .row
+
+      .col-md-12
+        strong Obs<br />
+        = @ctg.obs
+
+    hr
+    .row
+      .col-md-3
+        = link_to 'Novo CTG', new_ctg_path, class: 'btn btn-danger'
+      .col-md-3
+        = link_to 'Editar CTG', edit_ctg_path, class: 'btn btn-danger'
+      .col-md-3
+        = link_to 'Histórico do CTG', new_ctg_path, class: 'btn btn-danger'
 

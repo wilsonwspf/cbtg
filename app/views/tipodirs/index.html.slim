@@ -1,8 +1,8 @@
-h1 Tipos de diretorias
+h1 Tipos de Diretorias
 
 table.table.table-striped
   tr
-    th Name
+    th Diretoria
     th
 
 
@@ -10,11 +10,11 @@ table.table.table-striped
     tr
       td = tipodir.name
       td
-        .btn-group.pull-right
-          = link_to 'Show', tipodir, class: 'btn btn-default btn-sm'
-          = link_to 'Edit', edit_tipodir_path(tipodir), class: 'btn btn-default btn-sm'
-          = link_to 'Destroy', tipodir, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+          .btn-group.pull-right
+            = link_to 'Show', tipodir, class: 'btn btn-default btn-sm'
+            = link_to 'Edit', edit_tipodir_path(tipodir), class: 'btn btn-default btn-sm'
+            = link_to 'Destroy', tipodir, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
 br
 
-= link_to 'Nova Diretoria', new_tipodir_path, class: 'btn btn-default btn-sm'
+= link_to 'New Tipodir', new_tipodir_path, class: 'btn btn-danger'

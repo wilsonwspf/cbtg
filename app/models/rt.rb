@@ -1,5 +1,5 @@
 class Rt < ActiveRecord::Base
+  mount_uploader :logo, PictureUploader
   has_many :ctgs
-  has_many :registrations
   belongs_to :mtg
 end

@@ -1,32 +1,10 @@
 Cbtg::Application.routes.draw do
 
-  resources :entities
 
-  resources :eventos
 
-  resources :registrations
+  resources :piquetes
 
-  resources :categories
-
-  resources :tbgrupos
-
-  resources :tpeves
-
-  resources :modals
-
-  resources :provas
-
-  root :to => redirect("/members")
-
-  resources :mtgs do
-    member do
-      get 'listar_rts'
-    end
-  end
-
-  resources :rts
-
-  resources :ctgs
+  resources :tpevents
 
   resources :tiposocs
 
@@ -34,8 +12,15 @@ Cbtg::Application.routes.draw do
 
   resources :functions
 
+  resources :mtgs
+
+  resources :rts
+
+  resources :ctgs
+
   resources :members
 
+ root :to => redirect("/members")
 
 
 

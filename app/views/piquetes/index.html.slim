@@ -1,0 +1,23 @@
+h1 Piquetes
+
+table.table.table-striped
+  tr
+    th Piquete
+    th CTG
+    th
+
+
+  - @piquetes.each do |piquete|
+    tr
+      td = piquete.name
+      td = piquete.ctg.name
+      td
+          .btn-group.pull-right
+
+            = link_to 'Show', piquete, class: 'btn btn-default btn-sm'
+            = link_to 'Edit', edit_piquete_path(piquete), class: 'btn btn-default btn-sm'
+            = link_to 'Destroy', piquete, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+hr
+
+= link_to 'Novo Piquete', new_piquete_path, class: 'btn btn-danger'

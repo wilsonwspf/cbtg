@@ -1,28 +1,36 @@
+/= params[:busca]
+
+= simple_form_for(:busca, method: :get) do |f|
+  .row
+    .col-md-6
+      = f.input :name, label: 'Procurar por ...'
+    .col-md-6
+      <br />
+      = f.button :submit, 'Filtrar'
 h1 CTGs
 
 table.table.table-striped
   tr
-    th Nome
-    th Telefone
-    th Celular
+    th Name
+    th Url
     th Email
-    th URL
+    th Logo
     th
 
 
   - @ctgs.each do |ctg|
     tr
-      td = ctg.name
-      td = ctg.telefone
-      td = ctg.celular
-      td = ctg.email
+      td = ctg.rt.mtg.name + " - " + ctg.rt.name + " - " + ctg.name
       td = ctg.url
+      td = ctg.email
+      td = image_tag ctg.logo_url(:thumb) if ctg.logo?
       td
-        .btn-group.pull-right
-          = link_to 'Ver', ctg, class: 'btn btn-default btn-sm'
-          = link_to 'Editar', edit_ctg_path(ctg), class: 'btn btn-default btn-sm'
-          = link_to 'Deletar', ctg, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+          .btn-group.pull-right
+            = link_to 'Show', ctg, class: 'btn btn-default btn-sm'
+            = link_to 'Edit', edit_ctg_path(ctg), class: 'btn btn-default btn-sm'
+            = link_to 'Destroy', ctg, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
-br
-
-= link_to 'Novo CTG', new_ctg_path, class: 'btn btn-default btn-sm'
+hr
+.row
+  .col-md-3
+    = link_to 'Novo CTG', new_ctg_path, class: 'btn btn-danger'

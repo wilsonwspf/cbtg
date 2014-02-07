@@ -11,6 +11,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'prawn'
 end
 
 gem 'carrierwave'
@@ -45,5 +46,6 @@ gem 'slim-rails'
 gem 'xray-rails', '~> 0.1.11', group: :development
 
 gem 'pry-rails', group: :development
+
 
 

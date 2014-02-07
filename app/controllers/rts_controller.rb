@@ -3,7 +3,11 @@ class RtsController < ApplicationController
 
   # GET /rts
   def index
-    @rts = Rt.all
+    if params[:busca].present?
+      @rts = Rt.where("name LIKE ?", "%#{params[:busca][:name]}%")
+    else
+      @rts = Rt.all
+    end
   end
 
   # GET /rts/1
@@ -24,7 +28,7 @@ class RtsController < ApplicationController
     @rt = Rt.new(rt_params)
 
     if @rt.save
-      redirect_to @rt, notice: 'RT criada com sucesso.'
+      redirect_to @rt, notice: 'Rt was successfully created.'
     else
       render action: 'new'
     end
@@ -33,7 +37,7 @@ class RtsController < ApplicationController
   # PATCH/PUT /rts/1
   def update
     if @rt.update(rt_params)
-      redirect_to @rt, notice: 'RT atualizada com sucesso.'
+      redirect_to @rt, notice: 'Rt was successfully updated.'
     else
       render action: 'edit'
     end
@@ -42,9 +46,8 @@ class RtsController < ApplicationController
   # DELETE /rts/1
   def destroy
     @rt.destroy
-    redirect_to rts_url, notice: 'RT deletad com sucesso.'
+    redirect_to rts_url, notice: 'Rt was successfully destroyed.'
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -54,6 +57,6 @@ class RtsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def rt_params
-      params.require(:rt).permit(:name, :matricula, :dtmatricula, :endereco, :bairro, :cep, :cidade, :uf, :telefone, :celular, :email, :url, :cnpj, :dtfundacao, :coordenador, :obs, :mtg_id)
+      params.require(:rt).permit(:name, :end, :bairro, :cidade, :uf, :cep, :url, :email, :tel1, :tel2, :cel, :fundacao, :filiacao, :logo, :endcor, :bairrocor, :cepcor, :cidadecor, :ufcor, :cnpj, :obs, :mtg_id)
     end
 end

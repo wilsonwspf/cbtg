@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @tpevent.name
+
+= link_to 'Edit', edit_tpevent_path(@tpevent)
+'|
+= link_to 'Back', tpevents_path

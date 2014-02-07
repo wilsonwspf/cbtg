@@ -1,57 +1,93 @@
-p#notice = notice
+#notice = notice
 
-p
-  strong Name:
-  = @rt.name
-p
-  strong MTG:
-  = @rt.mtg.name
-p
-  strong Matricula:
-  = @rt.matricula
-p
-  strong Dtmatricula:
-  = @rt.dtmatricula
-p
-  strong Endereco:
-  = @rt.endereco
-p
-  strong Bairro:
-  = @rt.bairro
-p
-  strong Cep:
-  = @rt.cep
-p
-  strong Cidade:
-  = @rt.cidade
-p
-  strong Uf:
-  = @rt.uf
-p
-  strong Telefone:
-  = @rt.telefone
-p
-  strong Celular:
-  = @rt.celular
-p
-  strong Email:
-  = @rt.email
-p
-  strong Url:
-  = @rt.url
-p
-  strong Cnpj:
-  = @rt.cnpj
-p
-  strong Dtfundacao:
-  = @rt.dtfundacao
-p
-  strong Coordenador:
-  = @rt.coordenador
-p
-  strong Obs:
-  = @rt.obs
+.row
+  .col-md-2
+    = image_tag(@rt.logo_url, :width => 150, :height => 200) if @rt.logo.present?
+  .col-md-10
+    .row
+      .col-md-12
+        h1 = @rt.name
+    .row
+      .col-md-4
+        strong Endereço<br />
+        = @rt.end
 
-= link_to 'Edit', edit_rt_path(@rt)
-'|
-= link_to 'Back', rts_path
+      .col-md-3
+        strong Bairro<br />
+        = @rt.bairro
+
+      .col-md-2
+        strong CEP<br />
+        = @rt.cep
+
+      .col-md-2
+        strong Cidade<br />
+        = @rt.cidade
+
+      .col-md-1
+        strong UF<br />
+        = @rt.uf
+    hr
+    .row
+      .col-md-3
+        strong URL<br />
+        = @rt.url
+
+      .col-md-3
+        strong Email<br />
+        = @rt.email
+
+      .col-md-2
+        strong Telefone<br />
+        = @rt.tel1
+
+      .col-md-2
+        strong Telefone<br />
+        = @rt.tel2
+
+      .col-md-2
+        strong Celular<br />
+        = @rt.cel
+    hr
+    .row
+      .col-md-4
+        strong Fundação<br />
+        = l @rt.fundacao
+
+      .col-md-4
+        strong Filiação<br />
+        = l @rt.filiacao
+
+      .col-md-4
+        strong CNPJ<br />
+        = @rt.cnpj
+    hr
+    .row
+      .col-md-4
+        strong Endereço para Correspondência<br />
+        = @rt.endcor
+
+      .col-md-3
+        strong Bairro<br />
+        = @rt.bairrocor
+
+      .col-md-2
+        strong CEP<br />
+        = @rt.cep
+      .col-md-2
+        strong Cidade<br />
+        = @rt.cidadecor
+
+      .col-md-1
+        strong UF<br />
+        = @rt.ufcor
+    hr
+    .row
+
+      .col-md-12
+        strong Obs<br />
+        = @rt.obs
+
+= link_to 'Editar', edit_ctg_path(@rt)
+
+= link_to 'Voltar', ctgs_path

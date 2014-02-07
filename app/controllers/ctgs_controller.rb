@@ -3,7 +3,11 @@ class CtgsController < ApplicationController
 
   # GET /ctgs
   def index
-    @ctgs = Ctg.all
+    if params[:busca].present?
+      @ctgs = Ctg.where("name LIKE ?", "%#{params[:busca][:name]}%")
+    else
+      @ctgs = Ctg.all
+    end
   end
 
   # GET /ctgs/1
@@ -53,6 +57,6 @@ class CtgsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def ctg_params
-      params.require(:ctg).permit(:name, :matricula, :dtmatricula, :endereco, :bairro, :cep, :cidade, :uf, :telefone, :celular, :email, :url, :cnpj, :dtfundacao, :patrao, :obs, :rt_id)
+      params.require(:ctg).permit(:name, :end, :bairro, :cidade, :uf, :cep, :url, :email, :tel1, :tel2, :cel, :fundacao, :filiacao, :logo, :endcor, :bairrocor, :cepcor, :cidadecor, :ufcor, :cnpj, :obs, :rt_id)
     end
 end

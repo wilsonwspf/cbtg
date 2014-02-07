@@ -1,41 +1,37 @@
-= params[:busca]
+/= params[:busca]
 
 = simple_form_for(:busca, method: :get) do |f|
-  = f.input :name, input_html: {value: params[:busca][:name]}
-  = f.input :nascimento_inicio, as: :date, input_html: {value: @nascimento_inicio}
-  = f.input :nascimento_fim, as: :date
-  = f.button :submit, 'Filtrar'
-
+  .row
+    .col-md-6
+      = f.input :name, label: 'Procurar por ...'
+    .col-md-6
+      <br />
+      = f.button :submit, 'Filtrar'
 
 h1 Sócios
 
 table.table.table-striped
   tr
-    th Nome
-    th Telefone
-    th Celular
-    th Email
-    th Data Nascimento
-    th CTG
+    th Name
+    th MTG-RT-CTG
+    th Matricula
+    th Nascimento
     th Foto
     th
-
 
   - @members.each do |member|
     tr
       td = member.name
-      td = member.telefone
-      td = member.celular
-      td = member.email
-      td = member.dtnasc.strftime("%d-%m-%Y")
-      td = member.ctg.name
+      td = member.ctg.name + " - " + member.ctg.rt.name + " - " + member.ctg.rt.mtg.name
+      td = member.matricula
+      td = l member.nascimento
       td = image_tag member.picture_url(:thumb) if member.picture?
       td
-        .btn-group.pull-right
-          = link_to 'Ver', member, class: 'btn btn-default btn-sm'
-          = link_to 'Editar', edit_member_path(member), class: 'btn btn-default btn-sm'
-          = link_to 'Deletar', member, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+          .btn-group.pull-righ
+            = link_to 'Show', member, class: 'btn btn-default btn-sm'
+            = link_to 'Edit', edit_member_path(member), class: 'btn btn-default btn-sm'
+            = link_to 'Destroy', member, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
-br
+hr
 
-= link_to 'Novo Sócio', new_member_path, class: 'btn btn-default btn-sm'
+= link_to 'Novo Sócio', new_member_path, class: 'btn btn-danger'

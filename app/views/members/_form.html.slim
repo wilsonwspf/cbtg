@@ -2,52 +2,57 @@
   = f.error_notification
 
   .form-inputs
+    .row
+        .col-md-2
+            = image_tag(@member.picture_url, :width => 150) if @member.picture.present?
+            = f.file_field :logo
+        .col-md-7
+            = f.input :name, label: 'Nome'
+        .col-md-3
+            = f.association :ctg, label: 'CTG'
+        .col-md-2
+            = f.input :matricula, label: 'Matrícula'
+        .col-md-3
+            = f.input :filiacao, label: 'Data Filiação'
+        .col-md-3
+            = f.input :nascimento, label: 'Data de Nascimento'
+        .col-md-3
+            = f.input :tipo, label: 'Tipo'
+        .col-md-3
+            = f.input :natural, label: 'Natural'
+        .col-md-3
+            = f.input :uf, label: 'UF'
+        .col-md-3
+            = f.input :endereco, label: 'Endereço'
+        .col-md-3
+            = f.input :bairro, label: 'Bairro'
+        .col-md-3
+            = f.input :cep, label: 'CEP'
+        .col-md-3
+            = f.input :cidade, label: 'Cidade'
+        .col-md-3
+            = f.input :ufcid, label: 'UF'
+        .col-md-3
+            = f.input :telres, label: 'Telefone'
+        .col-md-3
+            = f.input :telfunc, label: 'Telefone'
+        .col-md-3
+            = f.input :celular, label: 'Celular'
+        .col-md-3
+            = f.input :rg, label: 'RG'
+        .col-md-3
+            = f.input :oexp, label: 'Órgão Exp.'
+        .col-md-3
+            = f.input :cpf, label: 'CPF'
+        .col-md-3
+            = f.input :email, label: 'Email'
+        .col-md-3
+            = f.input :conjuge, label: 'Cônjuge'
+        .col-md-3
+            = f.input :nascconjuge, label: 'Nasc. Cônjuge'
+    .row
+        .col-md-12
+            = f.input :obs, label: 'Observações'
 
-  .row
-    .col-md-4
-        = image_tag(@member.picture_url, :width => 150) if @member.picture.present?
-
-        = f.file_field :picture
-    .col-md-4
-        = f.input :name, label: 'Nome'
-    .col-md-4
-        = f.association :ctg, label: 'CTG'
-    .col-md-4
-        = f.input :matricula, label: 'Matrícula'
-    .col-md-4
-        .data
-            = f.input :dtmatricula, label: 'Data Matrícula'
-    .col-md-4
-        = f.input :endereco, label: 'Endereço'
-    .col-md-4
-        = f.input :bairro, label: 'Bairro'
-    .col-md-4
-        = f.input :cep, label: 'CEP'
-    .col-md-4
-        = f.input :cidade, label: 'Cidade'
-    .col-md-4
-        = f.input :uf, label: 'UF'
-    .col-md-4
-        = f.input :telefone, label: 'Telefone'
-    .col-md-4
-        = f.input :celular, label: 'Celular'
-    .col-md-4
-        = f.input :email, label: 'Email'
-    .col-md-4
-        .data
-            = f.input :dtnasc, label: 'Data Nasc'
-    .col-md-4
-        = f.input :natural, label: 'Natural'
-    .col-md-4
-        = f.input :naturaluf, label: 'UF'
-    .col-md-4
-        = f.input :conjuge, label: 'Nome'
-    .col-md-4
-        .data
-            = f.input :nascconj, label: 'Nasc. Cônjuge'
-    .col-md-4
-        = f.input :codbarra, label: 'Código de Barras'
-
-
-  .form-actions
-    = f.button :submit
+    .form-actions
+     = f.button :submit

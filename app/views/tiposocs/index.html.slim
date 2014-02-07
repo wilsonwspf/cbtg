@@ -2,19 +2,19 @@ h1 Tipos de Sócios
 
 table.table.table-striped
   tr
-    th Name
+    th Tipo de Sócio
     th
 
 
-  - @tiposocs.order(:name).each do |tiposoc|
+  - @tiposocs.each do |tiposoc|
     tr
       td = tiposoc.name
       td
-        .btn-group.pull-right
-          = link_to 'Ver', tiposoc, class: 'btn btn-default btn-sm'
-          = link_to 'Editar', edit_tiposoc_path(tiposoc), class: 'btn btn-default btn-sm'
-          = link_to 'Deletar', tiposoc, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+          .btn-group.pull-right
+            = link_to 'Show', tiposoc, class: 'btn btn-default btn-sm'
+            = link_to 'Edit', edit_tiposoc_path(tiposoc), class: 'btn btn-default btn-sm'
+            = link_to 'Destroy', tiposoc, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
 br
 
-= link_to 'Novo tipo de Sócio', new_tiposoc_path, class: 'btn btn-default btn-sm'
+= link_to 'New Tiposoc', new_tiposoc_path, class: 'btn btn-danger'

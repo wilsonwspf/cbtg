@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    title MTG-RS
+    title CBTG
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = csrf_meta_tags
 
@@ -13,19 +13,14 @@ html
   body
     nav.navbar.navbar-default.navbar-inverse.navbar-fixed-top
 
-      a.navbar-brand href="/members" <img src="http://www.cbtg.com.br/imagens/logos/mtgrs.jpg" width="20"> MTG-RS
+      a.navbar-brand href="/members" <img src="http://www.cbtg.com.br/imagens/logos/cbtg.jpg" width="20"> CBTG
 
       ul.nav.navbar-nav
         li = link_to 'Sócios', members_path
-
         li = link_to 'CTGs', ctgs_path
-
         li = link_to 'RTs', rts_path
-
         li = link_to 'MTGs', mtgs_path
-
-        li = link_to 'Inscrições', registrations_path
-
+        li = link_to 'Piquetes', piquetes_path
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#"
             | Tabelas
@@ -38,7 +33,7 @@ html
             li
               a href="/tiposocs" Tipos de Sócios
             li
-              a href="/tpeves" Tipos de Eventos
+              a href="/tpevents" Tipos de Eventos
             li.divider
             li
               a href="/modals" Modalidades
@@ -50,7 +45,6 @@ html
               a href="/categories" Categorias
             li
               a href="/eventos" Eventos
-
 
     .container
       = yield

@@ -11,30 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123215259) do
-
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140206021340) do
 
   create_table "ctgs", force: true do |t|
     t.string   "name"
-    t.string   "matricula"
-    t.date     "dtmatricula"
-    t.string   "endereco"
+    t.string   "end"
     t.string   "bairro"
-    t.string   "cep"
     t.string   "cidade"
     t.string   "uf"
-    t.string   "telefone"
-    t.string   "celular"
-    t.string   "email"
+    t.string   "cep"
     t.string   "url"
+    t.string   "email"
+    t.string   "tel1"
+    t.string   "tel2"
+    t.string   "cel"
+    t.date     "fundacao"
+    t.date     "filiacao"
+    t.string   "logo"
+    t.string   "endcor"
+    t.string   "bairrocor"
+    t.string   "cepcor"
+    t.string   "cidadecor"
+    t.string   "ufcor"
     t.string   "cnpj"
-    t.date     "dtfundacao"
-    t.string   "patrao"
     t.text     "obs"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,46 +41,6 @@ ActiveRecord::Schema.define(version: 20140123215259) do
   end
 
   add_index "ctgs", ["rt_id"], name: "index_ctgs_on_rt_id"
-
-  create_table "entities", force: true do |t|
-    t.string   "name"
-    t.string   "endereco"
-    t.string   "bairro"
-    t.string   "cep"
-    t.string   "cidade"
-    t.string   "uf"
-    t.string   "tel1"
-    t.string   "tel2"
-    t.string   "email"
-    t.string   "endcorresp"
-    t.string   "bairrocorresp"
-    t.string   "cepcorresp"
-    t.string   "cidadecorresp"
-    t.string   "ufcorresp"
-    t.string   "patrao"
-    t.string   "fonerespatrao"
-    t.string   "fonecompatrao"
-    t.string   "celpatrao"
-    t.string   "emailpatrao"
-    t.string   "cnpj"
-    t.date     "dtfundacao"
-    t.date     "datafiliacaomtg"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "eventos", force: true do |t|
-    t.string   "name"
-    t.date     "dataini"
-    t.date     "datafim"
-    t.string   "local"
-    t.string   "cidade"
-    t.string   "uf"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "link"
-    t.string   "imagem"
-  end
 
   create_table "functions", force: true do |t|
     t.string   "name"
@@ -92,101 +51,90 @@ ActiveRecord::Schema.define(version: 20140123215259) do
   create_table "members", force: true do |t|
     t.string   "name"
     t.string   "matricula"
-    t.date     "dtmatricula"
+    t.date     "filiacao"
+    t.date     "nascimento"
+    t.integer  "tipo"
+    t.string   "natural"
+    t.string   "uf"
     t.string   "endereco"
     t.string   "bairro"
     t.string   "cep"
     t.string   "cidade"
-    t.string   "uf"
-    t.string   "telefone"
+    t.string   "ufcid"
+    t.string   "telres"
+    t.string   "telfunc"
     t.string   "celular"
+    t.string   "rg"
+    t.string   "oexp"
+    t.string   "cpf"
     t.string   "email"
-    t.date     "dtnasc"
-    t.string   "natural"
-    t.string   "naturaluf"
     t.string   "conjuge"
-    t.date     "nascconj"
-    t.string   "codbarra"
+    t.date     "nascconjuge"
+    t.string   "picture"
+    t.text     "obs"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ctg_id"
-    t.string   "picture"
   end
 
   add_index "members", ["ctg_id"], name: "index_members_on_ctg_id"
 
-  create_table "modals", force: true do |t|
-    t.string   "name"
-    t.integer  "tpeve_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "mtgs", force: true do |t|
     t.string   "name"
-    t.string   "matricula"
-    t.date     "dtmatricula"
-    t.string   "endereco"
+    t.string   "end"
     t.string   "bairro"
-    t.string   "cep"
     t.string   "cidade"
     t.string   "uf"
-    t.string   "telefone"
-    t.string   "celular"
-    t.string   "email"
+    t.string   "cep"
     t.string   "url"
+    t.string   "email"
+    t.string   "tel1"
+    t.string   "tel2"
+    t.string   "cel"
+    t.date     "fundacao"
+    t.date     "filiacao"
+    t.string   "logo"
+    t.string   "endcor"
+    t.string   "bairrocor"
+    t.string   "cepcor"
+    t.string   "cidadecor"
+    t.string   "ufcor"
     t.string   "cnpj"
-    t.date     "dtfundacao"
-    t.string   "presidente"
     t.text     "obs"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "provas", force: true do |t|
+  create_table "piquetes", force: true do |t|
     t.string   "name"
-    t.text     "obs"
-    t.integer  "modal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "rails", force: true do |t|
-    t.string   "s"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "registrations", force: true do |t|
-    t.integer  "mtg_id"
-    t.integer  "rt_id"
     t.integer  "ctg_id"
-    t.integer  "member_id"
-    t.integer  "evento_id"
-    t.integer  "modal_id"
-    t.integer  "prova_id"
-    t.integer  "category_id"
-    t.integer  "tbgrupo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
+
+  add_index "piquetes", ["ctg_id"], name: "index_piquetes_on_ctg_id"
 
   create_table "rts", force: true do |t|
     t.string   "name"
-    t.string   "matricula"
-    t.date     "dtmatricula"
-    t.string   "endereco"
+    t.string   "end"
     t.string   "bairro"
-    t.string   "cep"
     t.string   "cidade"
     t.string   "uf"
-    t.string   "telefone"
-    t.string   "celular"
-    t.string   "email"
+    t.string   "cep"
     t.string   "url"
+    t.string   "email"
+    t.string   "tel1"
+    t.string   "tel2"
+    t.string   "cel"
+    t.date     "fundacao"
+    t.date     "filiacao"
+    t.string   "logo"
+    t.string   "endcor"
+    t.string   "bairrocor"
+    t.string   "cepcor"
+    t.string   "cidadecor"
+    t.string   "ufcor"
     t.string   "cnpj"
-    t.date     "dtfundacao"
-    t.string   "coordenador"
     t.text     "obs"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -195,12 +143,6 @@ ActiveRecord::Schema.define(version: 20140123215259) do
 
   add_index "rts", ["mtg_id"], name: "index_rts_on_mtg_id"
 
-  create_table "tbgrupos", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tipodirs", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -208,6 +150,12 @@ ActiveRecord::Schema.define(version: 20140123215259) do
   end
 
   create_table "tiposocs", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tpevents", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

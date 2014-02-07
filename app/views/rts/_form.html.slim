@@ -2,23 +2,55 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.association :mtg
-    = f.input :matricula
-    = f.input :dtmatricula
-    = f.input :endereco
-    = f.input :bairro
-    = f.input :cep
-    = f.input :cidade
-    = f.input :uf
-    = f.input :telefone
-    = f.input :celular
-    = f.input :email
-    = f.input :url
-    = f.input :cnpj
-    = f.input :dtfundacao
-    = f.input :coordenador
-    = f.input :obs
+    .row
+        .col-md-2
+            = image_tag(@rt.logo_url, :width => 150) if @rt.logo.present?
+            = f.file_field :logo
+        .col-md-8
+            = f.input :name
+        .col-md-2
+            = f.association :mtg
+        .col-md-3
+            = f.input :end
+        .col-md-2
+            = f.input :bairro
+
+        .col-md-2
+            = f.input :cep
+        .col-md-2
+            = f.input :cidade
+        .col-md-1
+            = f.input :uf
+
+        .col-md-2
+            = f.input :url
+        .col-md-2
+            = f.input :email
+        .col-md-2
+            = f.input :tel1
+        .col-md-2
+            = f.input :tel2
+        .col-md-2
+            = f.input :cel
+        .col-md-3
+            = f.input :fundacao
+        .col-md-3
+            = f.input :filiacao
+        .col-md-3
+            = f.input :endcor
+        .col-md-3
+            = f.input :bairrocor
+        .col-md-3
+            = f.input :cepcor
+        .col-md-3
+            = f.input :cidadecor
+        .col-md-3
+            = f.input :ufcor
+        .col-md-3
+            = f.input :cnpj
+    .row
+        .col-md-12
+            = f.input :obs
 
   .form-actions
     = f.button :submit

@@ -4,9 +4,7 @@ class MembersController < ApplicationController
   # GET /members
   def index
     if params[:busca].present?
-      @nascimento_inicio = Date.new params[:busca]["nascimento_inicio(1i)"].to_i, params[:busca]["nascimento_inicio(2i)"].to_i, params[:busca]["nascimento_inicio(3i)"].to_i
-      @nascimento_fim = Date.new params[:busca]["nascimento_fim(1i)"].to_i, params[:busca]["nascimento_fim(2i)"].to_i, params[:busca]["nascimento_fim(3i)"].to_i
-      @members = Member.where("name LIKE ?", "%#{params[:busca][:name]}%").where(dtnasc: (@nascimento_inicio..@nascimento_fim))
+      @members = Member.where("name LIKE ?", "%#{params[:busca][:name]}%")
     else
       @members = Member.all
     end
@@ -59,6 +57,6 @@ class MembersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def member_params
-      params.require(:member).permit(:name, :matricula, :dtmatricula, :endereco, :bairro, :cep, :cidade, :uf, :telefone, :celular, :email, :dtnasc, :natural, :naturaluf, :conjuge, :nascconj, :codbarra, :picture, :ctg_id)
+      params.require(:member).permit(:name, :matricula, :filiacao, :nascimento, :tipo, :natural, :uf, :endereco, :bairro, :cep, :cidade, :ufcid, :telres, :telfunc, :celular, :rg, :oexp, :cpf, :email, :conjuge, :nascconjuge, :picture, :obs, :ctg_id)
     end
 end

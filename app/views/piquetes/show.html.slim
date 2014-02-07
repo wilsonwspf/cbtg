@@ -1,0 +1,11 @@
+p#notice = notice
+
+p
+  strong Piquete<br />
+  = @piquete.name
+hr
+.row
+  .col-md-2
+    = link_to 'Editar', edit_piquete_path(@piquete), class: 'btn btn-danger'
+  .col-md-2
+    = link_to 'Voltar', piquetes_path, class: 'btn btn-danger'

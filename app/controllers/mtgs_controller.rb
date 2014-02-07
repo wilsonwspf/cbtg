@@ -1,9 +1,13 @@
 class MtgsController < ApplicationController
-  before_action :set_mtg, only: [:show, :edit, :update, :destroy, :listar_rts]
+  before_action :set_mtg, only: [:show, :edit, :update, :destroy]
 
   # GET /mtgs
   def index
-    @mtgs = Mtg.all
+    if params[:busca].present?
+      @mtgs = Mtg.where("name LIKE ?", "%#{params[:busca][:name]}%")
+    else
+      @mtgs = Mtg.all
+    end
   end
 
   # GET /mtgs/1
@@ -24,7 +28,7 @@ class MtgsController < ApplicationController
     @mtg = Mtg.new(mtg_params)
 
     if @mtg.save
-      redirect_to @mtg, notice: 'MTG criado com sucesso.'
+      redirect_to @mtg, notice: 'Mtg was successfully created.'
     else
       render action: 'new'
     end
@@ -33,7 +37,7 @@ class MtgsController < ApplicationController
   # PATCH/PUT /mtgs/1
   def update
     if @mtg.update(mtg_params)
-      redirect_to @mtg, notice: 'MTG atualizado com sucesso.'
+      redirect_to @mtg, notice: 'Mtg was successfully updated.'
     else
       render action: 'edit'
     end
@@ -42,13 +46,8 @@ class MtgsController < ApplicationController
   # DELETE /mtgs/1
   def destroy
     @mtg.destroy
-    redirect_to mtgs_url, notice: 'MTG deletado com sucesso.'
+    redirect_to mtgs_url, notice: 'Mtg was successfully destroyed.'
   end
-
-  def listar_rts
-    render json: @mtg.rts.select('id,name')
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -58,6 +57,6 @@ class MtgsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def mtg_params
-      params.require(:mtg).permit(:name, :matricula, :dtmatricula, :endereco, :bairro, :cep, :cidade, :uf, :telefone, :celular, :email, :url, :cnpj, :dtfundacao, :presidente, :obs)
+      params.require(:mtg).permit(:name, :end, :bairro, :cidade, :uf, :cep, :url, :email, :tel1, :tel2, :cel, :fundacao, :filiacao, :logo, :endcor, :bairrocor, :cepcor, :cidadecor, :ufcor, :cnpj, :obs)
     end
 end

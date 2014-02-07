@@ -1,52 +1,99 @@
-p#notice = notice
+#notice = notice
 
-p
-  strong Name:
-  = @mtg.name
-p
-  strong Matricula:
-  = @mtg.matricula
-p
-  strong Dtmatricula:
-  = @mtg.dtmatricula
-p
-  strong Endereco:
-  = @mtg.endereco
-p
-  strong Bairro:
-  = @mtg.bairro
-p
-  strong Cep:
-  = @mtg.cep
-p
-  strong Cidade:
-  = @mtg.cidade
-p
-  strong Uf:
-  = @mtg.uf
-p
-  strong Telefone:
-  = @mtg.telefone
-p
-  strong Celular:
-  = @mtg.celular
-p
-  strong Email:
-  = @mtg.email
-p
-  strong Url:
-  = @mtg.url
-p
-  strong Cnpj:
-  = @mtg.cnpj
-p
-  strong Dtfundacao:
-  = @mtg.dtfundacao
-p
-  strong Presidente:
-  = @mtg.presidente
-p
-  strong Obs:
-  = @mtg.obs
+.row
+  .col-md-2
+    = image_tag(@mtg.logo_url, :width => 150) if @mtg.logo.present?
+  .col-md-10
+    .row
+      .col-md-12
+        h1 = @mtg.name
+    .row
+      .col-md-4
+        strong Endereço<br />
+        = @mtg.end
 
+      .col-md-3
+        strong Bairro<br />
+        = @mtg.bairro
+
+      .col-md-2
+        strong CEP<br />
+        = @mtg.cep
+
+      .col-md-2
+        strong Cidade<br />
+        = @mtg.cidade
+
+      .col-md-1
+        strong UF<br />
+        = @mtg.uf
+    hr
+    .row
+      .col-md-3
+        strong URL<br />
+        = @mtg.url
+
+      .col-md-3
+        strong Email<br />
+        = @mtg.email
+
+      .col-md-2
+        strong Telefone<br />
+        = @mtg.tel1
+
+      .col-md-2
+        strong Telefone<br />
+        = @mtg.tel2
+
+      .col-md-2
+        strong Celular<br />
+        = @mtg.cel
+    hr
+    .row
+      .col-md-4
+        strong Fundação<br />
+        = l @mtg.fundacao
+
+      .col-md-4
+        strong Filiação<br />
+        = l @mtg.filiacao
+
+      .col-md-4
+        strong CNPJ<br />
+        = @mtg.cnpj
+    hr
+    .row
+      .col-md-4
+        strong Endereço para Correspondência<br />
+        = @mtg.endcor
+
+      .col-md-3
+        strong Bairro<br />
+        = @mtg.bairrocor
+
+      .col-md-2
+        strong CEP<br />
+        = @mtg.cep
+      .col-md-2
+        strong Cidade<br />
+        = @mtg.cidadecor
+
+      .col-md-1
+        strong UF<br />
+        = @mtg.ufcor
+    hr
+    .row
+
+      .col-md-12
+        strong Obs<br />
+        = @mtg.obs
+
+hr
+.row
+  .col-md-3
+    = link_to 'Novo MTG', new_mtg_path, class: 'btn btn-danger'
+  .col-md-3
+    = link_to 'Editar MTG', edit_mtg_path, class: 'btn btn-danger'
+  .col-md-3
+    = link_to 'Histórico do MTG', new_mtg_path, class: 'btn btn-danger'
 

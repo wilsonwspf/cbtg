@@ -2,19 +2,18 @@ h1 Cargos
 
 table.table.table-striped
   tr
-    th Name
+    th Cargo
     th
-
 
   - @functions.each do |function|
     tr
       td = function.name
       td
-        .btn-group.pull-right
-          = link_to 'Ver', function, class: 'btn btn-default btn-sm'
-          = link_to 'Editar', edit_function_path(function), class: 'btn btn-default btn-sm'
-          = link_to 'Deletar', function, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+          .btn-group.pull-right
+            = link_to 'Show', function, class: 'btn btn-default btn-sm'
+            = link_to 'Edit', edit_function_path(function), class: 'btn btn-default btn-sm'
+            = link_to 'Destroy', function, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
 br
 
-= link_to 'Novo Cargo', new_function_path, class: 'btn btn-default btn-sm'
+= link_to 'Novo Cargo', new_function_path, class: 'btn btn-danger'

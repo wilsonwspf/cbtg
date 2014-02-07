@@ -1,7 +1,9 @@
 p#notice = notice
 
 p
-  strong Diretoria<br />
+  strong Name:
   = @tipodir.name
 
-
+= link_to 'Edit', edit_tipodir_path(@tipodir)
+'|
+= link_to 'Back', tipodirs_path

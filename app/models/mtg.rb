@@ -1,4 +1,4 @@
 class Mtg < ActiveRecord::Base
+  mount_uploader :logo, PictureUploader
   has_many :rts
-  has_many :registrations
 end

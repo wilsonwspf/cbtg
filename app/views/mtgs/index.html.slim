@@ -1,28 +1,44 @@
+/= params[:busca]
+
+= simple_form_for(:busca, method: :get) do |f|
+  .row
+    .col-md-6
+      = f.input :name, label: 'Procurar por ...'
+    .col-md-6
+      <br />
+      = f.button :submit, 'Filtrar'
+
 h1 MTGs
 
 table.table.table-striped
   tr
-    th Nome
-    th Telefone
-    th Celular
+    th Name
     th Email
-    th URL
+    th Tel1
+    th Tel2
+    th Cel
+    th Fundacao
+    th Filiacao
+    th Logo
     th
 
 
   - @mtgs.each do |mtg|
     tr
       td = mtg.name
-      td = mtg.telefone
-      td = mtg.celular
       td = mtg.email
-      td = mtg.url
+      td = mtg.tel1
+      td = mtg.tel2
+      td = mtg.cel
+      td = l mtg.fundacao
+      td = l mtg.filiacao
+      td = image_tag mtg.logo_url(:thumb) if mtg.logo?
       td
-        .btn-group.pull-right
-          = link_to 'Ver', mtg, class: 'btn btn-default btn-sm'
-          = link_to 'Editar', edit_mtg_path(mtg), class: 'btn btn-default btn-sm'
-          = link_to 'Deletar', mtg, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+          .btn-group.pull-right
+            = link_to 'Show', mtg, class: 'btn btn-default btn-sm'
+            = link_to 'Edit', edit_mtg_path(mtg), class: 'btn btn-default btn-sm'
+            = link_to 'Destroy', mtg, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
 br
 
-= link_to 'Novo MTG', new_mtg_path, class: 'btn btn-default btn-sm'
+= link_to 'Nova mtg', new_mtg_path
