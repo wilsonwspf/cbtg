@@ -1,7 +1,9 @@
 h1 MTG
 
 == render 'form'
-
-= link_to 'Show', @mtg
-'|
-= link_to 'Back', mtgs_path
+hr
+.row
+  .col-md-3
+    = link_to 'Show', @mtg, class: 'btn btn-danger'
+  .col-md-3
+    = link_to 'Back', mtgs_path, class: 'btn btn-danger'

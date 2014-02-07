@@ -1,9 +1,11 @@
-h1 Tio de Evento
+h1 Tipo de Evento
 
 == render 'form'
 
 hr
-= link_to 'Ver', @tpevent, class: 'btn btn-danger'
-'|
-= link_to 'Voltar', tpevents_path, class: 'btn btn-danger'
+.row
+  .col-md-3
+    = link_to 'Ver', @tpevent, class: 'btn btn-danger'
+  .col-md-3
+    = link_to 'Voltar', tpevents_path, class: 'btn btn-danger'
 

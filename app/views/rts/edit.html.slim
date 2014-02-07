@@ -1,8 +1,10 @@
 h1 RT
 
 == render 'form'
-
-= link_to 'Show', @rt
-'|
-= link_to 'Back', rts_path
+hr
+.row
+  .col-md-3
+    = link_to 'Show', @rt, class: 'btn btn-danger'
+  .col-md-3
+    = link_to 'Back', rts_path, class: 'btn btn-danger'
 

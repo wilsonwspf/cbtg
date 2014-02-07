@@ -1,8 +1,10 @@
-h1 Editing tiposoc
+h1 Tipos de Sócios
 
 == render 'form'
-
-= link_to 'Show', @tiposoc
-'|
-= link_to 'Back', tiposocs_path
+hr
+.row
+  .col-md-3
+    = link_to 'Ver', @tiposoc, class: 'btn btn-danger'
+  .col-md-3
+    = link_to 'Voltar', tiposocs_path, class: 'btn btn-danger'
 

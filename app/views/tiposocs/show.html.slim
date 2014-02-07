@@ -1,9 +1,9 @@
 p#notice = notice
 
 p
-  strong Name:
+  strong Tipo de sócio:
   = @tiposoc.name
 
-= link_to 'Edit', edit_tiposoc_path(@tiposoc)
+= link_to 'Editar', edit_tiposoc_path(@tiposoc), class: 'btn btn-danger'
 '|
-= link_to 'Back', tiposocs_path
+= link_to 'Voltar', tiposocs_path, class: 'btn btn-danger'

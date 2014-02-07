@@ -7,50 +7,50 @@
             = image_tag(@ctg.logo_url, :width => 150) if @ctg.logo.present?
             = f.file_field :logo
         .col-md-8
-            = f.input :name
+            = f.input :name, label: 'Nome do CTG'
         .col-md-2
-            = f.association :rt
+            = f.association :rt, label: 'RT'
         .col-md-3
-            = f.input :end
+            = f.input :end, label: 'Endereço'
         .col-md-2
-            = f.input :bairro
+            = f.input :bairro, label: 'Bairro'
 
         .col-md-2
-            = f.input :cep
+            = f.input :cep, label: 'CEP'
         .col-md-2
-            = f.input :cidade
+            = f.input :cidade, label: 'Cidade'
         .col-md-1
-            = f.input :uf
+            = f.input :uf, label: 'UF'
 
         .col-md-2
-            = f.input :url
+            = f.input :url, label: 'URL'
         .col-md-2
-            = f.input :email
+            = f.input :email, label: 'Email'
         .col-md-2
-            = f.input :tel1
+            = f.input :tel1, label: 'Telefone'
         .col-md-2
-            = f.input :tel2
+            = f.input :tel2, label: 'Telefone'
         .col-md-2
-            = f.input :cel
+            = f.input :cel, label: 'Celular'
         .col-md-3
-            = f.input :fundacao
+            = f.input :fundacao, label: 'Data de Fundação'
         .col-md-3
-            = f.input :filiacao
+            = f.input :filiacao, label: 'Data Filiação'
         .col-md-3
-            = f.input :endcor
+            = f.input :endcor, label: 'Endereço para correspondência'
         .col-md-3
-            = f.input :bairrocor
+            = f.input :bairrocor, label: 'Bairro'
         .col-md-3
-            = f.input :cepcor
+            = f.input :cepcor, label: 'CEP'
         .col-md-3
-            = f.input :cidadecor
+            = f.input :cidadecor, label: 'Cidade'
         .col-md-3
-            = f.input :ufcor
+            = f.input :ufcor, label: 'UF'
         .col-md-3
-            = f.input :cnpj
+            = f.input :cnpj, label: 'CNPJ'
     .row
         .col-md-12
-            = f.input :obs
+            = f.input :obs, label: 'Observacões'
 
   .form-actions
     = f.button :submit

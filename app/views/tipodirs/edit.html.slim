@@ -1,8 +1,10 @@
-h1 Editing tipodir
+h1 Tipos de Diretorias
 
 == render 'form'
-
-= link_to 'Show', @tipodir
-'|
-= link_to 'Back', tipodirs_path
+hr
+.row
+  .col-md-3
+    = link_to 'Show', @tipodir, class: 'btn btn-danger'
+  .col-md-3
+    = link_to 'Back', tipodirs_path, class: 'btn btn-danger'
 

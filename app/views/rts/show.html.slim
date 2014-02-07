@@ -87,7 +87,9 @@
       .col-md-12
         strong Obs<br />
         = @rt.obs
-
-= link_to 'Editar', edit_ctg_path(@rt)
-
-= link_to 'Voltar', ctgs_path
+    hr
+    .row
+      .col-md-3
+        = link_to 'Editar', edit_rt_path(@rt), class: 'btn btn-danger'
+      .col-md-3
+        = link_to 'Voltar', rts_path, class: 'btn btn-danger'

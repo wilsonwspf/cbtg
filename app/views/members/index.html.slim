@@ -28,9 +28,9 @@ table.table.table-striped
       td = image_tag member.picture_url(:thumb) if member.picture?
       td
           .btn-group.pull-righ
-            = link_to 'Show', member, class: 'btn btn-default btn-sm'
-            = link_to 'Edit', edit_member_path(member), class: 'btn btn-default btn-sm'
-            = link_to 'Destroy', member, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+            = link_to 'Ver', member, class: 'btn btn-default btn-sm'
+            = link_to 'Editar', edit_member_path(member), class: 'btn btn-default btn-sm'
+            = link_to 'Deletar', member, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
 hr
 

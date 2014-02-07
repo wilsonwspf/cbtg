@@ -21,8 +21,7 @@ table.table.table-striped
     th Filiacao
     th Logo
     th
-    th
-    th
+
 
   - @rts.each do |rt|
     tr
@@ -36,10 +35,10 @@ table.table.table-striped
       td = image_tag rt.logo_url(:thumb) if rt.logo?
       td
           .btn-group.pull-right
-            = link_to 'Show', rt, class: 'btn btn-default btn-sm'
-            = link_to 'Edit', edit_rt_path(rt), class: 'btn btn-default btn-sm'
-            = link_to 'Destroy', rt, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+            = link_to 'Ver', rt, class: 'btn btn-default btn-sm'
+            = link_to 'Editar', edit_rt_path(rt), class: 'btn btn-default btn-sm'
+            = link_to 'Deletar', rt, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
 br
 
-= link_to 'Nova RT', new_rt_path
+= link_to 'Nova RT', new_rt_path, class: 'btn btn-danger'
