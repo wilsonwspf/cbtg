@@ -11,9 +11,8 @@ table.table.table-striped
       td = tiposoc.name
       td
           .btn-group.pull-right
-            = link_to 'Show', tiposoc, class: 'btn btn-default btn-sm'
-            = link_to 'Edit', edit_tiposoc_path(tiposoc), class: 'btn btn-default btn-sm'
-            = link_to 'Destroy', tiposoc, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+            = link_to 'Editar', edit_tiposoc_path(tiposoc), class: 'btn btn-default btn-sm'
+            = link_to 'Deletar', tiposoc, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
 
 br
 

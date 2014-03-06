@@ -1,0 +1,12 @@
+= simple_form_for(@recebimento) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :vencimento
+    = f.input :quem
+    = f.input :valor
+    = f.input :dtpgto
+    = f.input :contato
+
+  .form-actions
+    = f.button :submit

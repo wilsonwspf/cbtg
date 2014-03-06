@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Vencimento<br />
+  = @pagamento.vencimento
+p
+  strong Quem<br />
+  = @pagamento.quem
+p
+  strong Valor<br />
+  = @pagamento.valor
+p
+  strong Data pagamento<br />
+  = @pagamento.dtpgto
+p
+  strong Tipo pagamento<br />
+  = @pagamento.tipopgto
+
+= link_to 'Editar', edit_pagamento_path(@pagamento)
+'|
+= link_to 'Voltar', pagamentos_path

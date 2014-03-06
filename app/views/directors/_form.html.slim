@@ -1,0 +1,12 @@
+= simple_form_for(@director) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :member, label: 'Sócio'
+    = f.association :function, label: 'Cargo'
+    = f.input :dataini, label: 'Data início', start_year: 1979, end_year: 2020
+    = f.input :datafim, label: 'Data final', start_year: 1979, end_year: 2020
+    = f.input :obs, label: 'Observações'
+
+  .form-actions
+    = f.button :submit

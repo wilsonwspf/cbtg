@@ -2,6 +2,29 @@ Cbtg::Application.routes.draw do
 
 
 
+  resources :directors
+
+  resources :recebimentos
+
+  resources :rents
+
+  resources :pagamentos
+
+  mount Uploadbox::Engine => '/uploadbox', as: :uploadbox
+  resources :ocurrences
+
+  resources :saloons
+
+  resources :eventos
+
+  resources :categories
+
+  resources :grupos
+
+  resources :provas
+
+  resources :modalidades
+
   resources :piquetes
 
   resources :tpevents
@@ -19,6 +42,8 @@ Cbtg::Application.routes.draw do
   resources :ctgs
 
   resources :members
+
+  resources :socios
 
  root :to => redirect("/members")
 

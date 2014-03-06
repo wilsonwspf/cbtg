@@ -1,0 +1,28 @@
+h1 Lista de Diretores
+
+table.table.table-striped
+  tr
+    th Sócio
+    th Cargo
+    th Data início
+    th Data fim
+    th Observações
+    th
+
+
+  - @directors.each do |director|
+    tr
+      td = director.member.name
+      td = director.function.name
+      td = l director.dataini
+      td = l director.datafim
+      td = director.obs
+      td
+          .btn-group.pull-right
+            = link_to 'Ver', director, class: 'btn btn-default btn-sm'
+            = link_to 'Editar', edit_director_path(director), class: 'btn btn-default btn-sm'
+            = link_to 'Deletar', director, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo Diretor', new_director_path, class: 'btn btn-danger'

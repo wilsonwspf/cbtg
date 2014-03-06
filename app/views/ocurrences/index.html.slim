@@ -1,0 +1,23 @@
+h1 Ocorrências
+
+table.table.table-striped
+  tr
+    th Data
+    th Descricao
+    th Sócios
+    th
+    th
+    th
+
+  - @ocurrences.each do |ocurrence|
+    tr
+      td = l ocurrence.data
+      td = ocurrence.descricao
+      td = ocurrence.member.name
+      td = link_to 'Show', ocurrence
+      td = link_to 'Edit', edit_ocurrence_path(ocurrence)
+      td = link_to 'Destroy', ocurrence, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Ocurrence', new_ocurrence_path

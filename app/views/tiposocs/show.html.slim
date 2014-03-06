@@ -1,9 +1,18 @@
 p#notice = notice
 
-p
-  strong Tipo de sócio:
-  = @tiposoc.name
 
-= link_to 'Editar', edit_tiposoc_path(@tiposoc), class: 'btn btn-danger'
-'|
-= link_to 'Voltar', tiposocs_path, class: 'btn btn-danger'
+.row
+  .col-md-12
+    h1 = @tiposoc.name
+
+
+
+
+    hr
+
+    .row
+
+      .col-md-3
+        = link_to 'Editar', edit_tiposoc_path(@tiposoc), class: 'btn btn-danger'
+      .col-md-3
+        = link_to 'Voltar', tiposocs_path, class: 'btn btn-danger'

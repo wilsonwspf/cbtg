@@ -1,0 +1,12 @@
+= simple_form_for(@rent) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :data, label: 'Data do aluguel', start_year: 2014, end_year: 2020
+    = f.association :saloon, label: 'Salão'
+    = f.input :valor
+    = f.input :contato
+    = f.input :datapgto, label: 'Data do pagamento'
+
+  .form-actions
+    = f.button :submit

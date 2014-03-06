@@ -1,0 +1,28 @@
+h1 Aluguéis
+
+table.table.table-striped
+  tr
+    th Data aluguel
+    th Salão
+    th Valor
+    th Contato
+    th Data pagamento
+    th
+
+
+  - @rents.each do |rent|
+    tr
+      td = l rent.data
+      td = rent.saloon.name
+      td = rent.valor
+      td = rent.contato
+      td = rent.datapgto
+      td
+          .btn-group.pull-right
+            = link_to 'Ver', rent, class: 'btn btn-default btn-sm'
+            = link_to 'Editar', edit_rent_path(rent), class: 'btn btn-default btn-sm'
+            = link_to 'Deletar', rent, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo aluguel', new_rent_path, class: 'btn btn-danger'

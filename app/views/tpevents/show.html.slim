@@ -1,9 +1,13 @@
 p#notice = notice
 
-p
-  strong Name:
-  = @tpevent.name
+.row
+  .col-md-12
+    h1 = @tpevent.name
 
-= link_to 'Edit', edit_tpevent_path(@tpevent), class: 'btn btn-danger'
-'|
-= link_to 'Back', tpevents_path, class: 'btn btn-danger'
+
+hr
+.row
+  .col-md-3
+    = link_to 'Editar', edit_tpevent_path(@tpevent), class: 'btn btn-danger'
+  .col-md-3
+    = link_to 'Voltar', tpevents_path, class: 'btn btn-danger'

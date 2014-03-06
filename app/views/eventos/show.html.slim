@@ -1,0 +1,30 @@
+p#notice = notice
+
+.row
+  .col-md-6
+    strong Evento<br />
+    = @evento.name
+  .col-md-3
+    strong Data Inicial<br />
+    = l @evento.dataini
+  .col-md-3
+    strong Data Final<br />
+    = l @evento.datafim
+hr
+.row
+  .col-md-12
+    strong Imagem<br />
+    = image_tag(@evento.imagem_url, :width => 350) if @evento.imagem.present?
+
+hr
+.row
+  .col-md-6
+    strong Local<br />
+    = @evento.local
+  .col-md-4
+    strong Cidade<br />
+    = @evento.cidade
+  .col-md-2
+    strong UF<br />
+    = @evento.uf
+

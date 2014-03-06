@@ -1,0 +1,12 @@
+= simple_form_for(@pagamento) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :vencimento
+    = f.input :quem
+    = f.input :valor
+    = f.input :dtpgto, label: 'Data de pagamento'
+    = f.input :tipopgto, label: 'Tipo pagamento'
+
+  .form-actions
+    = f.button :submit

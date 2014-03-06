@@ -1,0 +1,21 @@
+h1 Lista de salões
+
+table.table.table-striped
+  tr
+    th Name
+    th
+
+
+  - @saloons.each do |saloon|
+    tr
+      td
+        = saloon.name
+      td
+        .btn-group.pull-right
+            = link_to 'Ver', saloon, class: 'btn btn-default btn-sm'
+            = link_to 'Editar', edit_saloon_path(saloon), class: 'btn btn-default btn-sm'
+            = link_to 'Deletar', saloon, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo Salão', new_saloon_path, class: 'btn btn-success'

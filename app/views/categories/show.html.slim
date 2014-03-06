@@ -1,0 +1,20 @@
+p#notice = notice
+
+.row
+  .col-md-12
+    strong Categoria
+    h1 = @category.name
+  hr
+  .row
+    .col-md-3
+      strong Idade Inicial<br />
+      = @category.idadeini
+    .col-md-3
+      strong Idade Final<br />
+      = @category.idadefim
+  hr
+  .row
+    .col-md-3
+      = link_to 'Edit', edit_category_path(@category), class: 'btn btn-danger'
+    .col-md-3
+      = link_to 'Back', categories_path, class: 'btn btn-danger'

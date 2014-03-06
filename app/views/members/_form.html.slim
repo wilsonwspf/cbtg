@@ -4,8 +4,7 @@
   .form-inputs
     .row
         .col-md-2
-            = image_tag(@member.picture_url, :width => 150) if @member.picture.present?
-            = f.file_field :logo
+            = f.uploads_one :picture
         .col-md-7
             = f.input :name, label: 'Nome'
         .col-md-3
@@ -17,7 +16,7 @@
         .col-md-3
             = f.input :nascimento, label: 'Data de Nascimento'
         .col-md-3
-            = f.input :tipo, label: 'Tipo'
+            = f.association :tiposoc, label: 'Tipo Sócio'
         .col-md-3
             = f.input :natural, label: 'Natural'
         .col-md-3

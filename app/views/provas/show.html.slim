@@ -1,0 +1,12 @@
+p#notice = notice
+
+.row
+  .col-md-12
+    h1 = @prova.name
+  hr
+  .row
+    .col-md-3
+
+      = link_to 'Editar', edit_prova_path(@prova), class: 'btn btn-danger'
+    .col-md-3
+      = link_to 'Voltar', provas_path, class: 'btn btn-danger'

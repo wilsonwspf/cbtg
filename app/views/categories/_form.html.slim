@@ -1,0 +1,15 @@
+= simple_form_for(@category) do |f|
+  = f.error_notification
+
+  .form-inputs
+      .row
+        .col-md-12
+          = f.input :name, label: 'Categoria'
+      .row
+        .col-md-6
+          = f.input :idadeini, label: 'Idade Inicial'
+        .col-md-6
+          = f.input :idadefim, label: 'Idade Final'
+
+  .form-actions
+    = f.button :submit

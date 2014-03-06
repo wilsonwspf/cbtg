@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Data deVencimento<br />
+  = @recebimento.vencimento
+p
+  strong Quem<br />
+  = @recebimento.quem
+p
+  strong Valor<br />
+  = @recebimento.valor
+p
+  strong Data de Pagamento<br />
+  = @recebimento.dtpgto
+p
+  strong Contato:
+  = @recebimento.contato
+
+= link_to 'Editar', edit_recebimento_path(@recebimento)
+'|
+= link_to 'Voltar', recebimentos_path

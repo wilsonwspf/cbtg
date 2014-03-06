@@ -47,5 +47,7 @@ gem 'xray-rails', '~> 0.1.11', group: :development
 
 gem 'pry-rails', group: :development
 
+#upload
+gem 'uploadbox', '0.1.3'
 
 

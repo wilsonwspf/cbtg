@@ -1,0 +1,10 @@
+= simple_form_for(@ocurrence) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :data
+    = f.association :member
+    = f.input :descricao
+
+  .form-actions
+    = f.button :submit

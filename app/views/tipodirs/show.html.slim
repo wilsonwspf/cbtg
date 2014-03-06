@@ -1,9 +1,12 @@
 p#notice = notice
+.row
+  .col-md-12
+    h1 = @tipodir.name
 
-p
-  strong Name:
-  = @tipodir.name
+    hr
+    .row
+      .col-md-3
 
-= link_to 'Edit', edit_tipodir_path(@tipodir), class: 'btn btn-danger'
-'|
-= link_to 'Back', tipodirs_path, class: 'btn btn-danger'
+        = link_to 'Editar', edit_tipodir_path(@tipodir), class: 'btn btn-danger'
+      .col-md-3
+        = link_to 'Voltar', tipodirs_path, class: 'btn btn-danger'

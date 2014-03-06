@@ -1,0 +1,28 @@
+h1 Lista de Recebimentos
+
+table.table.table-striped
+  tr
+    th Data de Vencimento
+    th Quem
+    th Valor
+    th Data de Pagamento
+    th Contato
+    th
+
+
+  - @recebimentos.each do |recebimento|
+    tr
+      td = l recebimento.vencimento, start_year: 2000, end_year: 2020
+      td = recebimento.quem
+      td = recebimento.valor
+      td = l recebimento.dtpgto, start_year: 2013, end_year: 2020
+      td = recebimento.contato
+      td
+          .btn-group.pull-right
+            = link_to 'Ver', recebimento, class: 'btn btn-default btn-sm'
+            = link_to 'Editar', edit_recebimento_path(recebimento), class: 'btn btn-default btn-sm'
+            = link_to 'Deletar', recebimento, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo Recebimento', new_recebimento_path, class: 'btn btn-danger'

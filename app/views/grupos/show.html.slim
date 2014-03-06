@@ -1,0 +1,11 @@
+p#notice = notice
+
+.row
+  .col-md-12
+    h1 = @grupo.name
+  hr
+  .row
+    .col-md-3
+      = link_to 'Editar', edit_grupo_path(@grupo), class: 'btn btn-danger'
+    .col-md-3
+      = link_to 'Voltar', grupos_path, class: 'btn btn-danger'

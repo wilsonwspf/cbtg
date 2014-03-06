@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Data:
+  = @ocurrence.data
+p
+  strong Descrição:
+  = @ocurrence.descricao
+
+= link_to 'Editar', edit_ocurrence_path(@ocurrence)
+'|
+= link_to 'Voltar', ocurrences_path

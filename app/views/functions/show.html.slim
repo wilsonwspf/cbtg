@@ -1,9 +1,10 @@
 p#notice = notice
 
-p
-  strong Name:
-  = @function.name
 
-= link_to 'Edit', edit_function_path(@function)
-'|
-= link_to 'Back', functions_path
+.row
+  .col-md-12
+    h1 = @function.name
+  hr
+= link_to 'Edit', edit_function_path(@function), class: 'btn btn-danger'
+
+= link_to 'Back', functions_path, class: 'btn btn-danger'

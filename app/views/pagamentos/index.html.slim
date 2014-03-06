@@ -1,0 +1,42 @@
+h1 Pagamentos
+.row
+  .col-md-2
+    .btn.btn-default
+      = link_to 'Todos',  pagamentos_path
+  .col-md-2
+    .btn.btn-default
+      = link_to 'No mês',  pagamentos_path(filtro: 'mes')
+  .col-md-2
+    .btn.btn-default
+      = link_to 'No dia',  pagamentos_path(filtro: 'dia')
+  .col-md-2
+    .btn.btn-default
+      = link_to 'Amanhã',  pagamentos_path(filtro: 'amanha')
+
+<br />
+table.table.table-striped
+  tr
+    th Vencimento
+    th Quem
+    th Valor
+    th Data pagamento
+    th Tipo pagamento
+    th
+
+
+  - @pagamentos.each do |pagamento|
+    tr
+      td = l pagamento.vencimento
+      td = pagamento.quem
+      td = pagamento.valor
+      td = l pagamento.dtpgto
+      td = pagamento.tipopgto
+      td
+          .btn-group.pull-right
+            = link_to 'Ver', pagamento, class: 'btn btn-default btn-sm'
+            = link_to 'Editar', edit_pagamento_path(pagamento), class: 'btn btn-default btn-sm'
+            = link_to 'Deletar', pagamento, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'
+
+br
+
+= link_to 'Novo Pagamento', new_pagamento_path, class: 'btn btn-danger'

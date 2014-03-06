@@ -2,25 +2,28 @@ p#notice = notice
 .row
   .col-md-2
     strong Foto<br />
-    = image_tag(@member.picture_url, :width => 150, :height => 200) if @member.picture.present?
+    p = img @member.picture.small if @member.picture?
   .col-md-10
     .row
       .col-md-12
         h1 = @member.name
     .row
+      .col-md-12
+        h4 = @member.ctg.name + " - " + @member.ctg.rt.name + " - " + @member.ctg.rt.mtg.name
+    .row
       .col-md-2
         strong Matrícula<br />
         = @member.matricula
       .col-md-2
-        strong Filiacao<br />
-        = @member.filiacao
+        strong Filiação<br />
+        = l @member.filiacao
       .col-md-2
         strong Nascimento<br />
-        = @member.nascimento
+        = l @member.nascimento
 
       .col-md-2
-        strong Tipo<br />
-        = @member.tipo
+        strong Tipo de sócio<br />
+        = @member.tiposoc.name
       .col-md-2
         strong Natural<br />
         = @member.natural
@@ -30,39 +33,39 @@ p#notice = notice
     hr
     .row
       .col-md-4
-        strong Endereco<br />
+        strong Endereço<br />
         = @member.endereco
       .col-md-3
         strong Bairro<br />
         = @member.bairro
       .col-md-2
-        strong Cep<br />
+        strong CEP<br />
         = @member.cep
       .col-md-2
         strong Cidade<br />
         = @member.cidade
       .col-md-1
-        strong Ufcid<br />
+        strong UF<br />
         = @member.ufcid
     hr
     .row
       .col-md-2
-        strong Telres<br />
+        strong Tel Residencial<br />
         = @member.telres
       .col-md-2
-        strong Telfunc<br />
+        strong Tel Funcional<br />
         = @member.telfunc
       .col-md-2
         strong Celular<br />
         = @member.celular
       .col-md-2
-        strong Rg<br />
+        strong RG<br />
         = @member.rg
       .col-md-2
-        strong Oexp<br />
+        strong Órgão Expedidor<br />
         = @member.oexp
       .col-md-2
-        strong Cpf<br />
+        strong CPF<br />
         = @member.cpf
     hr
     .row
@@ -70,15 +73,15 @@ p#notice = notice
         strong Email<br />
         = @member.email
       .col-md-4
-        strong Conjuge<br />
+        strong Cônjuge<br />
         = @member.conjuge
       .col-md-4
-        strong Nascconjuge<br />
-        = @member.nascconjuge
+        strong Nascimento cônjuge<br />
+        = l @member.nascconjuge
     hr
     .row
       .col-md-12
-        strong Obs<br />
+        strong Observações<br />
         = @member.obs
 
     hr
@@ -87,3 +90,14 @@ p#notice = notice
         = link_to 'Editar', edit_member_path(@member), class: 'btn btn-danger'
       .col-md-3
         = link_to 'Voltar', members_path, class: 'btn btn-danger'
+
+hr
+.row
+  .col-md-3
+    = link_to 'Cartões Emitidos', edit_member_path(@member), class: 'btn btn-success btn-block'
+  .col-md-3
+    = link_to 'Ocorrências', ocurrences_path, class: 'btn btn-success btn-block'
+  .col-md-3
+    = link_to 'Cargos Exercidos', edit_member_path(@member), class: 'btn btn-success btn-block'
+  .col-md-3
+    = link_to 'Participação em Eventos', members_path, class: 'btn btn-success btn-block'

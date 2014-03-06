@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Data do aluguel:
+  = @rent.data
+p
+  strong Salão<br />
+  = @rent.saloon.name
+p
+  strong Valor<br />
+  = @rent.valor
+p
+  strong Contato<br />
+  = @rent.contato
+p
+  strong Data pagamento<br />
+  = @rent.datapgto
+
+= link_to 'Editar', edit_rent_path(@rent)
+'|
+= link_to 'Voltar', rents_path

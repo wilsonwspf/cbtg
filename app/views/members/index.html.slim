@@ -25,9 +25,9 @@ table.table.table-striped
       td = member.ctg.name + " - " + member.ctg.rt.name + " - " + member.ctg.rt.mtg.name
       td = member.matricula
       td = l member.nascimento
-      td = image_tag member.picture_url(:thumb) if member.picture?
+      td = img member.picture.thumb if member.picture?
       td
-          .btn-group.pull-righ
+          .btn-group.pull-right
             = link_to 'Ver', member, class: 'btn btn-default btn-sm'
             = link_to 'Editar', edit_member_path(member), class: 'btn btn-default btn-sm'
             = link_to 'Deletar', member, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default btn-sm'

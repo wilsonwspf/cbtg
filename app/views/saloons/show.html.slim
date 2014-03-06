@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Salão<br />
+  = @saloon.name
+
+= link_to 'Editar', edit_saloon_path(@saloon), class: 'btn btn-danger'
+'|
+= link_to 'Voltar', saloons_path, class: 'btn btn-danger'
